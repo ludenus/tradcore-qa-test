@@ -100,6 +100,10 @@ Response example
 
 Use defined endpoints to write API tests on your own, all routes should be covered. Cypress is preferred testing framework but if you are not familiar with it your are free to choose different framework.
 
+## ~~ AA ~~ 
+
+## How to build and run
+ 
 ```
-
-
+docker build -t tradcore-qa-test:local . && docker run -ti --rm -p3111:3000 tradcore-qa-test:local
+```
