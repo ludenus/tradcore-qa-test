@@ -1,0 +1,17 @@
+---
+version: "3.7"
+services:
+  tradcore-app:
+    image: ludenus/tradcore-app:${TRADECORE_APP_VERSION}
+    ports:
+      - "3111:3000"
+
+  tradcore-test:
+    image: cypress/included:${CYPRESS_INCLUDED_VERSION}
+    volumes:
+      - .:/e2e
+    working_dir: /e2e
+    environment:
+      CYPRESS_baseUrl: http://tradcore-app:3000
+    depends_on:
+      - tradcore-app
