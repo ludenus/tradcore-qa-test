@@ -1,9 +1,8 @@
 #!/bin/bash -xe
 
-
 docker run \
          -it \
-         -v $PWD:/e2e \
+         -v $(pwd):/e2e \
          -w /e2e \
          -e CYPRESS_baseUrl=http://172.17.0.1:3111 \
          cypress/included:4.9.0
