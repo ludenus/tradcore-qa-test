@@ -27,13 +27,13 @@ describe('Sign In', () => {
             },
             failOnStatusCode: false
         })
-        .should((response) => {
-            expect(response.status).to.eq(200) 
-            // AA: For a real project I would file a bug here: 
-            // 401 Unauthorized or 403 Forbidden should be expected instead of 200 OK.
-            expect(response.body).property('error').to.equal(true)
-            expect(response.body).property('message').to.equal("Wrong password or email")
-        })
+            .should((response) => {
+                expect(response.status).to.eq(200)
+                // AA: For a real project I would file a bug here: 
+                // 401 Unauthorized or 403 Forbidden should be expected instead of 200 OK.
+                expect(response.body).property('error').to.equal(true)
+                expect(response.body).property('message').to.equal("Wrong password or email")
+            })
     });
 
     it('Positive: Successful sign-in', () => {
@@ -42,13 +42,13 @@ describe('Sign In', () => {
             url: '/sign-in',
             body: {
                 email: valid_mail,
-                password: valid_pass, 
+                password: valid_pass,
             },
         })
-        .should((response) => {
-            expect(response.status).to.eq(200)
-            expect(response.body).to.deep.equal({ "access_token": expected_acccess_token })
-        })
+            .should((response) => {
+                expect(response.status).to.eq(200)
+                expect(response.body).to.deep.equal({ "access_token": expected_acccess_token })
+            })
     });
 
 

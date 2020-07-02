@@ -1,14 +1,14 @@
 describe('Hello World!', () => {
 
-   beforeEach(() => {
-       cy.request('/').as('root')
-   });
+    beforeEach(() => {
+        cy.request('/').as('root')
+    });
 
-   it('Validate the status code', () => {
-         cy.get('@root')
-             .its('status')
-             .should('equal', 200);
-     });
+    it('Validate the status code', () => {
+        cy.get('@root')
+            .its('status')
+            .should('equal', 200);
+    });
 
 
     it('Validate the header', () => {

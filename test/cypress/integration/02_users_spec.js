@@ -61,7 +61,6 @@ describe('API Testing with Cypress', () => {
     });
 
     it('Negative: get user by id, POST instead of GET', () => {
-
         cy.request({
             method: 'POST',
             url: `/users/${active_user.user_id}`,
@@ -76,7 +75,6 @@ describe('API Testing with Cypress', () => {
     });
 
     it('Negative: get user by id, missing access token', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${active_user.user_id}`,
@@ -90,7 +88,6 @@ describe('API Testing with Cypress', () => {
     });
 
     it('Negative: get user by id, incorrect access token', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${active_user.user_id}`,
@@ -107,7 +104,6 @@ describe('API Testing with Cypress', () => {
     });
 
     it('Negative: get user by id, inactive user', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${inactive_user.user_id}`,
@@ -125,7 +121,6 @@ describe('API Testing with Cypress', () => {
 
 
     it('Negative: get user by id, non-existing user_id', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${non_existing_user_id}`,
@@ -142,7 +137,6 @@ describe('API Testing with Cypress', () => {
     });
 
     it('Positive: get user by id', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${active_user.user_id}`,
@@ -159,7 +153,6 @@ describe('API Testing with Cypress', () => {
 
 
     it('Negative: get accounts by user id, missing access token', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${active_user.user_id}/accounts`,
@@ -173,7 +166,6 @@ describe('API Testing with Cypress', () => {
     });
 
     it('Negative: get accounts by user id, incorrect access token', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${active_user.user_id}/accounts`,
@@ -189,9 +181,8 @@ describe('API Testing with Cypress', () => {
             })
     });
 
-    
-    it('Negative: get accounts by user id, inactive user', () => {
 
+    it('Negative: get accounts by user id, inactive user', () => {
         cy.request({
             method: 'GET',
             url: `/users/${inactive_user.user_id}/accounts`,
@@ -208,7 +199,6 @@ describe('API Testing with Cypress', () => {
     });
 
     it('Negative: get accounts by user id, time lord', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${time_lord_user.user_id}/accounts`,
@@ -225,7 +215,6 @@ describe('API Testing with Cypress', () => {
     });
 
     it('Negative: get accounts by user id, non-existing user_id', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${non_existing_user_id}/accounts`,
@@ -242,7 +231,6 @@ describe('API Testing with Cypress', () => {
     });
 
     it('Positive: get accounts by user id', () => {
-
         cy.request({
             method: 'GET',
             url: `/users/${active_user.user_id}/accounts`,
@@ -344,6 +332,5 @@ describe('API Testing with Cypress', () => {
     const time_lord_user = users.find(u => u.title.toLowerCase().includes('timelord'));
     const non_existing_user_id = Number.MAX_SAFE_INTEGER
     const active_user_accounts = accounts[active_user.user_id - 1]
-
 
 })
